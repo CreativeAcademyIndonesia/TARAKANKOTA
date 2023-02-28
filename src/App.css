@@ -7,6 +7,7 @@
   --text-grey : #B5B6BD;
   --white : #fff;
   --blue : #284E8C;
+  --lightblue : #dff7fd;
 }
 
 *{
@@ -27,11 +28,19 @@ h5{
 
 .service-card{
   border-radius: 16px;
-  background-color: var(--white)
+  background-color: var(--white);
+  cursor : pointer;
 }
 
 .text-blue {
   color: var(--blue);
+}
+
+.icon-layanan{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-color: var(--lightblue);
 }
 
 
