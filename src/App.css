@@ -6,12 +6,17 @@
   --textblack : hsl(235, 17%, 25%);
   --text-grey : #B5B6BD;
   --white : #fff;
-  --blue : #284E8C;
+  --blue : #255db6;
   --lightblue : #dff7fd;
+  --darkblue : rgb(24,18,48)
 }
 
 *{
   font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  background-color: var(--darkblue) !important;
 }
 
 body{
@@ -32,6 +37,10 @@ h5{
 
 .bg-lightblue {
   background-color: var(--lightblue);
+}
+
+.bg-darkblue{
+  background-color: var(--darkblue);
 }
 
 .service-card{
@@ -55,6 +64,10 @@ h5{
   padding : 60px 0
 }
 
+.py-80{
+  padding : 80px 0
+}
+
 .text-black-90{
   color: var(--textblack);
 }
@@ -75,7 +88,14 @@ h5{
 }
 
 .tugaspokok ul {
-  list-style-type: none;
+  /* list-style-type: none; */
+  margin: 0;
+  padding: 0;
+}
+
+.tugaspokok ul.left {
+  /* list-style-type: none; */
+  direction: rtl;
   margin: 0;
   padding: 0;
 }
@@ -84,7 +104,29 @@ h5{
   font-size: 20px;
 }
 
+.text-16{
+  font-size: 1.2rem;
+}
+.text-md-justify-center{
+  text-align: center;
+}
+
+.text-md-justify-start{
+  text-align: left;
+}
+.text-md-justify-end{
+  text-align: right;
+}
+
 @media only screen and (max-width: 768px) {
+
+  .text-md-justify-center, .text-md-justify-start, .text-md-justify-end{
+    text-align: justify;
+  }
+
+  .text-16{
+    font-size: 1rem;
+  }
   .tugaspokok ul {
     list-style-type: circle !important;
     margin: 12px;
@@ -104,7 +146,7 @@ h5{
 .footer-dark {
   padding:50px 0;
   color:#f0f9ff;
-  background-color:#282d32;
+  background-color:var(--darkblue);
 }
 
 .footer-dark h3 {

@@ -26,38 +26,38 @@ const Homepage = ()=>{
 
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
-                            <div className="icon-layanan p-2 mb-4 d-flex justify-content-center align-items-center">
+                            <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img src={jenislayanan} className="w-75"/>
                             </div>
-                           <h6 className="fw-normal lh-base text-blue">Jenis Jenis Pengujian</h6>
+                           <h6 className="fw-normal lh-base text-blue text-center">Jenis Jenis Pengujian</h6>
                         </div>
                     </div>
 
 
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
-                            <div className="icon-layanan p-2 mb-4 d-flex justify-content-center align-items-center">
+                            <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img src={pengujian} className="w-75"/>
                             </div>
-                           <h6 className="fw-normal lh-base text-blue">Pengajuan Uji Bahan Konstruksi</h6>
+                           <h6 className="fw-normal lh-base text-blue text-center">Pengajuan Uji Bahan Konstruksi</h6>
                         </div>
                     </div>
 
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
-                            <div className="icon-layanan p-2 mb-4 d-flex justify-content-center align-items-center">
+                            <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img src={tarif} className="w-75"/>
                             </div>
-                           <h6 className="fw-normal lh-base text-blue">Tarif & Biaya Pengujian</h6>
+                           <h6 className="fw-normal lh-base text-blue text-center">Tarif & Biaya Pengujian</h6>
                         </div>
                     </div>
 
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
-                            <div className="icon-layanan p-2 mb-4 d-flex justify-content-center align-items-center">
+                            <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img src={steps} className="w-75"/>
                             </div>
-                           <h6 className="fw-normal lh-base text-blue">Mekanisme Penujian Bahan</h6>
+                           <h6 className="fw-normal lh-base text-blue text-center">Mekanisme Penujian Bahan</h6>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ const Homepage = ()=>{
 
                 <div className="row justify-content-center align-items-center">
                     <div className="col-md-4 tugaspokok">
-                        <ul className="text-md-end text-start">
+                        <ul className="text-md-end text-start left">
                             <li className="fungsi-title"><mark className="bg-lightblue">Memberikan bantuan teknis </mark> dalam kegiatan pengawasan dan pengendalian agar produk pembangunan bermutu;</li>
                             <li className="fungsi-title"><mark className="bg-lightblue">Melaksanakan pelayanan jasa</mark> pengujian mutu bahan konstruksi tanah, agregat, beton, dan aspal</li>
                         </ul>
@@ -134,7 +134,7 @@ const Homepage = ()=>{
                     </div> */}
                 
 
-                <div className="row mt-5">
+                <div className="row mt-5 py-80">
                     <div className="col-12 mb-5">
                         <h5 className="text-blue">Lab PUPR Trakan Kota</h5>
                         <h1 className=" fw-bold mt-2">Program & Kegiatan Terkini</h1>
