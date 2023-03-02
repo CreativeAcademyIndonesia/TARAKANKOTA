@@ -22,6 +22,9 @@ function Navigation() {
               <NavDropdown.Item href="#action/3.1">Jenis Jenis Pelayanan</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.1">Tarif & Biaya</NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#pricing" className="mx-2">GALERI</Nav.Link>
+            <Nav.Link href="#pricing" className="mx-2">CONTACT</Nav.Link>
+            <Nav.Link href="#pricing" className="mx-2">MEKANISME</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">tarakankota@gmail.com</Nav.Link>

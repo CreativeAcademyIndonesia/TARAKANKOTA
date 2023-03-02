@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navigation from './components/Navigation';
 import Homepage from './pages/Homepage';
@@ -8,9 +8,12 @@ function App() {
   return (
     <>
       <Navigation />
-      <div>
-      </div>
-      <Homepage />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Homepage />}></Route>
+        </Routes>
+      </Router>
+      
       <Footer />
     </>
   );

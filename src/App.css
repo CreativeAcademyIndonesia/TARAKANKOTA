@@ -18,12 +18,20 @@ body{
   background-color: var(--background) !important;
 }
 
+.content-body-wrapper{
+  margin-top: 68px;
+}
+
 h1{
   color: var(--textblack);
 }
 
 h5{
   color: var(--blue);
+}
+
+.bg-lightblue {
+  background-color: var(--lightblue);
 }
 
 .service-card{
@@ -43,6 +51,54 @@ h5{
   background-color: var(--lightblue);
 }
 
+.py-60{
+  padding : 60px 0
+}
+
+.text-black-90{
+  color: var(--textblack);
+}
+
+.divider{
+  width: 40px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: var(--blue);
+}
+
+.accsent img {
+  border-radius: 30px;
+}
+
+.accsent2 img{
+  border-radius: 30px;
+}
+
+.tugaspokok ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fungsi-title{
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .tugaspokok ul {
+    list-style-type: circle !important;
+    margin: 12px;
+    padding: 0 12px;
+  }
+  .fungsi-title{
+    font-size: 16px;
+  }
+}
+
+
+.tugaspokok ul li {
+  margin: 20px 0;
+}
 
 /* Footer */
 .footer-dark {
