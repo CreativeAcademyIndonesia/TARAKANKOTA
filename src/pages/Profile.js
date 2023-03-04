@@ -46,14 +46,14 @@ const ProfilePage = ()=>{
                             <h1 className=" fw-bold mt-2 text-center text-md-start">VISI</h1>
                             <div className="divider mx-auto mx-md-0"></div>
                             <div className="accsent mx-auto text-center d-lg-none d-block">
-                                <img src={VISI} className="w-lg-50 w-75 my-4"/>
+                                <img alt='' src={VISI} className="w-lg-50 w-75 my-4"/>
                             </div>
                             <p className="text-black-90 mt-4 fungsi-title text-md-justify-start">Terwujudnya UPT Laboratorium Uji Bahan Konstruksi yang produktif dan bermanfaat membantu pemerintah dalam melaksanakan tugas pembangunan yang tepat mutu, tepat waktu, dan tepat biaya serta meningkatkan Pendapat Asli Daerah (PAD) Kota Tarakan.
                             </p>
                         </div>
                         <div className="col-lg-6 py-lg-5 mt-md-4 mt-2 mb-2 px-4 order-lg-3 order-1 d-none d-lg-block">
                             <div className="accsent mx-auto text-center">
-                                <img src={VISI} className="w-lg-50 w-75"/>
+                                <img alt='' src={VISI} className="w-lg-50 w-75"/>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ const ProfilePage = ()=>{
                     <div className="row align-items-center pt-lg-2 pt-4">
                         <div className="col-lg-6 py-lg-5 mt-md-4 mt-2 mb-2 px-4 d-none d-lg-block">
                             <div className="accsent mx-auto text-center">
-                                <img src={MISI} className="w-75"/>
+                                <img alt='' src={MISI} className="w-75"/>
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-2">
@@ -73,7 +73,7 @@ const ProfilePage = ()=>{
                             <h1 className=" fw-bold mt-2 text-center text-md-start text-white">MISI</h1>
                             <div className="divider mx-auto mx-md-0"></div>
                             <div className="accsent mx-auto text-center d-lg-none d-block">
-                                <img src={MISI} className="w-75 my-4"/>
+                                <img alt='' src={MISI} className="w-75 my-4"/>
                             </div>
                             <p className="text-black-90 mt-4 fungsi-title text-md-justify-start text-white">
                             Untuk melaksanakan fungsi tersebut, UPT. Laboratorium Uji Bahan Konstruksi mempunyai tugas sebagai berikut :
@@ -93,7 +93,7 @@ const ProfilePage = ()=>{
                 <div className="container">
                     <div className="row mb-5 justify-content-center">
                         <div className="col-lg-6 col-12 text-center">
-                            <img src={kepaladinas} className="rounded-circle w-50 mb-5"/>
+                            <img alt='' src={kepaladinas} className="rounded-circle w-50 mb-5"/>
                             <h5 className="text-blue">Kepala Dinas</h5>
                             <h1 className=" fw-bold mt-2">FANDARIANSYAH, S.T.,M.T</h1>
                             <h5 className="text-blue">NIP. 19710508 199803 1 009</h5>
@@ -107,7 +107,7 @@ const ProfilePage = ()=>{
                             <div className="divider mx-auto"></div>
                         </div>
                         <div className='col-12 text-center'>
-                            <img src={struktur} className="w-100 mb-5"/>
+                            <img alt='' src={struktur} className="w-100 mb-5"/>
                         </div>
                     </div>
 

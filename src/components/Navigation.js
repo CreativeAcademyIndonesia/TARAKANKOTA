@@ -10,7 +10,7 @@ function Navigation() {
     <Navbar collapseOnSelect expand="lg"  variant="dark"  fixed="top">
       <Container>
         <Navbar.Brand href="#home">
-          <img src={logo} className="me-3" style={{width : "35px"}}/>
+          <img alt="" src={logo} className="me-3" style={{width : "35px"}}/>
           Trakan Kota
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,9 +23,10 @@ function Navigation() {
               <span className="mx-2 nav-link">PROFILE</span>
             </Link>
             <NavDropdown title="PELAYANAN" id="collasible-nav-dropdown" className="mx-2">
-              <Link to="/pelayanan" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Pengajuan Pengujian</NavDropdown.Item></Link>
+              <Link to="/formpengajuan" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Pengajuan Pengujian</NavDropdown.Item></Link>
+              <Link to="/mekanisme" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Mekanisme Pengajuan</NavDropdown.Item></Link>
               <Link to="/pelayanan" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Jenis Jenis Pelayanan</NavDropdown.Item></Link>
-              <Link to="/pelayanan" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Tarif & Biaya</NavDropdown.Item></Link>
+              {/* <Link to="/pelayanan" className='text-decoration-none'><NavDropdown.Item href="#action/3.1">Tarif & Biaya</NavDropdown.Item></Link> */}
             </NavDropdown>
             <Link to="/galeri" className='text-decoration-none'>
               <span className="mx-2 nav-link">GALERI</span>

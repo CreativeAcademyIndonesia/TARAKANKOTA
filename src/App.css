@@ -7,7 +7,7 @@
   --text-grey : #B5B6BD;
   --white : #fff;
   --blue : #255db6;
-  --lightblue : #dff7fd;
+  --lightblue : #e7f7fb;
   --darkblue : rgb(24,18,48)
 }
 
@@ -72,11 +72,26 @@ h5{
   color: var(--textblack);
 }
 
+.text-grey{
+  color: var(--text-grey);
+}
+
 .divider{
   width: 40px;
   height: 4px;
   border-radius: 20px;
   background-color: var(--blue);
+}
+.divider-35{
+  width: 100px;
+  height: 4px;
+  border-radius: 20px;
+  margin-top: -6px;
+  background-color: var(--blue);
+}
+
+.nav-right{
+  padding-top : 90px; 
 }
 
 .accsent img {
@@ -104,6 +119,9 @@ h5{
   font-size: 20px;
 }
 
+.text-14{
+  font-size: .9rem;
+}
 .text-16{
   font-size: 1.2rem;
 }
@@ -142,6 +160,14 @@ h5{
   margin: 20px 0;
 }
 
+.form-control, .form-control-lg{
+  background-color: var(--background) !important;
+  outline: none !important;
+  border: none !important;
+}
+
+
+
 /* Footer */
 .footer-dark {
   padding:50px 0;
@@ -175,6 +201,10 @@ h5{
 }
 
 @media (max-width:767px) {
+  .nav-right{
+    padding-top : 0; 
+  }
+
   .footer-dark .item:not(.social) {
     text-align:center;
     padding-bottom:20px;

@@ -1,5 +1,4 @@
 import CarouselBanner from "../components/Carousel"
-import thumb from '../img/thumb.webp'
 import pengujian from '../img/icon/pengujian.png'
 import tarif from '../img/icon/tarif.png'
 import steps from '../img/icon/steps.png'
@@ -8,6 +7,7 @@ import example from '../img/blog/example.jpg'
 import accsent1 from '../img/accsent.jpg'
 import accsent3 from  '../img/acc.png'
 import accsent4 from  '../img/acc4.png'
+import CardGaleri from "../components/CardGaleri"
 
 const Homepage = ()=>{
     return(
@@ -27,7 +27,7 @@ const Homepage = ()=>{
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
-                                <img src={jenislayanan} className="w-75"/>
+                                <img alt="" src={jenislayanan} className="w-75"/>
                             </div>
                            <h6 className="fw-normal lh-base text-blue text-center">Jenis Jenis Pengujian</h6>
                         </div>
@@ -37,7 +37,7 @@ const Homepage = ()=>{
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
-                                <img src={pengujian} className="w-75"/>
+                                <img alt="" src={pengujian} className="w-75"/>
                             </div>
                            <h6 className="fw-normal lh-base text-blue text-center">Pengajuan Uji Bahan Konstruksi</h6>
                         </div>
@@ -46,7 +46,7 @@ const Homepage = ()=>{
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
-                                <img src={tarif} className="w-75"/>
+                                <img alt="" src={tarif} className="w-75"/>
                             </div>
                            <h6 className="fw-normal lh-base text-blue text-center">Tarif & Biaya Pengujian</h6>
                         </div>
@@ -55,7 +55,7 @@ const Homepage = ()=>{
                     <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
-                                <img src={steps} className="w-75"/>
+                                <img alt="" src={steps} className="w-75"/>
                             </div>
                            <h6 className="fw-normal lh-base text-blue text-center">Mekanisme Penujian Bahan</h6>
                         </div>
@@ -69,7 +69,7 @@ const Homepage = ()=>{
                         <h1 className=" fw-bold mt-2">Lab PUPR Trakan Kota</h1>
                         <div className="divider"></div>
                         <div className="accsent d-lg-none d-block">
-                            <img src={accsent1} className="w-100 my-4"/>
+                            <img alt="" src={accsent1} className="w-100 my-4"/>
                         </div>
                         <p className="text-black-90 mt-4 fungsi-title">UPT. Laboratorium Uji Bahan Konstruksi mempunyai fungsi 
                             menunjang pelaksanaan tugas dinas untuk kepentingan proses
@@ -78,7 +78,7 @@ const Homepage = ()=>{
                     </div>
                     <div className="col-lg-6 py-lg-5 mt-md-4 mt-2 mb-2 px-4 order-lg-3 order-1 d-none d-lg-block">
                         <div className="accsent">
-                            <img src={accsent1} className="w-100"/>
+                            <img alt="" src={accsent1} className="w-100"/>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ const Homepage = ()=>{
                         <h1 className=" fw-bold mt-2 text-center">Lab PUPR Trakan Kota</h1>
                         <div className="divider mx-auto"></div>
                         <div className="accsent2 text-center ">
-                            <img src={accsent4} className="w-100 mt-3 d-block d-md-none"/>
+                            <img alt="" src={accsent4} className="w-100 mt-3 d-block d-md-none"/>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@ const Homepage = ()=>{
                     </div>
                     <div className="col-md-4 d-md-block d-none">
                         <div className="accsent2 text-center ">
-                            <img src={accsent3} className="w-75"/>
+                            <img alt="" src={accsent3} className="w-75"/>
                         </div>
                     </div>
                     <div className="col-md-4 tugaspokok">
@@ -140,30 +140,12 @@ const Homepage = ()=>{
                         <h1 className=" fw-bold mt-2">Program & Kegiatan Terkini</h1>
                     </div>
 
-                    <div className="col-lg-4 col-md-6 col-12 mt-lg-0 mt-4">
-                        <div className="service-card p-4">
-                            <img src={example} className="ratio ratio-4x3 w-100 rounded-4" />
-                            <h5 className="mt-3">sdrf</h5> 
-                            <span>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus.  </span>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-12 mt-lg-0 mt-4">
-                        <div className="service-card p-4">
-                            <img src={example} className="ratio ratio-4x3 w-100 rounded-4" />
-                            <h5 className="mt-3">sdrf</h5> 
-                            <span>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus.  </span>
-                        </div>
-                    </div>
-                    <div className="col-lg-4 col-md-6 col-12 mt-lg-0 mt-4">
-                        <div className="service-card p-4">
-                            <img src={example} className="ratio ratio-4x3 w-100 rounded-4" />
-                            <h5 className="mt-3">sdrf</h5> 
-                            <span>Praesent sed lobortis mi. Suspendisse vel placerat ligula. Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis tristique lectus.  </span>
-                        </div>
-                    </div>
+                    <CardGaleri />
+                    <CardGaleri />
+                    <CardGaleri />
 
                     <div className="col-12 text-center">
-                        <a href="" className="text-decoration-none mx-auto d-block mt-5 link">Lihat Lainnya...</a>
+                        <a href="/home" className="text-decoration-none mx-auto d-block mt-5 link">Lihat Lainnya...</a>
                     </div>
                 </div>
             </div>
