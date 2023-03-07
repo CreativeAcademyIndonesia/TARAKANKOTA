@@ -10,6 +10,7 @@ import Mekanisme from './pages/Mekanisme';
 import Pelayanan from './pages/Pelayanan';
 import FormPengajuan from './pages/FormPengajuan';
 import DetailsBlog from './pages/DetailsBlog';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/contact' element={<Contact />}></Route>
             <Route path='/mekanisme' element={<Mekanisme />}></Route>
             <Route path='/formpengajuan' element={<FormPengajuan />}></Route>
+            <Route path='/admin' element={<Admin />}></Route>
           </Routes>
         <Footer />
       </Router>

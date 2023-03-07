@@ -166,7 +166,28 @@ h5{
   border: none !important;
 }
 
+.contact-social{
+  font-size: 2rem;
+  color: var(--blue);
+}
 
+.contact-social span{
+  font-size: 1.2rem;
+}
+
+.swal-text{
+  text-align: center;
+}
+
+.swal-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.swal-footer button{
+  background-color: rgb(0, 189, 63) !important;
+
+}
 
 /* Footer */
 .footer-dark {

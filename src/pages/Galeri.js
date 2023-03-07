@@ -1,4 +1,3 @@
-import example from '../img/blog/example.jpg'
 import CardGaleri from '../components/CardGaleri'
 
 const Galeri = ()=>{

@@ -37,6 +37,10 @@ function Navigation() {
             <Link to="/contact" className='text-decoration-none'>
               <span className="mx-2 nav-link">CONTACT</span>
             </Link>
+
+            <Link to="/admin" className='text-decoration-none'>
+              <span className="mx-2 nav-link">ADMIN</span>
+            </Link>
           </Nav>
           <Nav>
             <Nav.Link href="#deets">tarakankota@gmail.com</Nav.Link>

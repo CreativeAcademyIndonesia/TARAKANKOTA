@@ -115,23 +115,6 @@ const Homepage = ()=>{
                         </ul>
                     </div>
                 </div>
-                    {/* <div className="col-md-10 col-12 my-2 my-md-4">
-                        <div className="service-card py-5 px-4">
-                            <h5 className="fw-bold text-blue text-center mt-5">TUGAS</h5>
-                            <div className="divider mx-auto"></div>
-                            <p className="text-center text-black-90 mt-4">Untuk melaksanakan fungsi tersebut, UPT. Laboratorium Uji Bahan Konstruksi mempunyai tugas sebagai berikut :
-                            </p>
-                            <p className="text-black-90 mt-2">
-                                <ul>
-                                    <li>Memberikan bantuan teknis dalam kegiatan pengawasan dan pengendalian agar produk pembangunan bermutu;</li>
-                                    <li>Melaksanakan pelayanan jasa pengujian mutu bahan konstruksi tanah, agregat, beton, dan aspal</li>
-                                    <li>Melaksanakan pengkajian dan penerapan teknologi dibidang bahan konstruksi;</li>
-                                    <li>Menyiapkan dan memelihara prasarana dan sarana laboratorium untuk menunjang proses pelayanan jasa uji, pengkajian dan penerapan teknologi;</li>
-                                    <li>Melaksanakan urusan ketatausahaan.</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div> */}
                 
 
                 <div className="row mt-5 py-80">

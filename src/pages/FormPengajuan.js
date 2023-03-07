@@ -1,7 +1,12 @@
+import axios from 'axios'
 import { useState } from 'react'
 import customservice from '../img/icon/customer-service.png'
 import process from '../img/icon/process.png'
+import swal from 'sweetalert'
+import { useNavigate } from 'react-router-dom'
+
 const FormPengajuan = ()=>{
+    const navigate = useNavigate()
     const [ no, setNo ] = useState('')
     const [ lampiran, setLampiran ] = useState('')
     const [ perihal, setPerihal ] = useState('')
@@ -15,12 +20,72 @@ const FormPengajuan = ()=>{
     const [ lokasi, setLokasi ] = useState('')
     const [ pernyataan, setPernyataan ] = useState('')
     const [ tanggal, setTanggal ] = useState('')
-    const [ ttd, setTTd ] = useState(new Date())
+    const [ ttd, setTTd ] = useState('')
 
-    const handSubmit = (e)=>{
-        e.preventDefault()
-        console.log('ok')
-    }
+
+    const loadImage = (e) => {
+        const image = e.target.files[0];
+        setTTd(image);
+    };
+
+    const handSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", ttd);
+        const con = {
+            no,
+            lampiran,
+            perihal,
+            nama,
+            alamat,
+            jabatan,
+            instansi,
+            telp,
+            kegiatan,
+            paketkegiatan,
+            lokasi,
+            pernyataan,
+            tanggal,
+            ttd
+        }
+        formData.append("data", JSON.stringify(con));
+        try {
+            await axios.post("http://localhost:5000/upload/pengajuan", formData, {
+            headers: {
+                "Content-type": "multipart/form-data",
+            },
+        }).then((response) => {
+            swal({
+                title: "Pengajuan Disimpan",
+                text: "Pengajuan Uji Lab Bahan Konstruksi Terlah tersimpan, Silahkan kirim Whatsapp untuk Konfirmasi",
+                icon: "success",
+                button: 'Kirim Via Whatapp',
+                })
+                .then((willSend) => {
+                    if (willSend) {
+                        window.location.replace(`https://api.whatsapp.com/send/?phone=088145333925&text=Hallo saya ${nama} jabatan ${jabatan} mohon pengajuan uji lab dengan No Lampiran ${lampiran}`);
+                        setNo('')
+                        setLampiran('')
+                        setPerihal('')
+                        setNama('')
+                        setAlamat('')
+                        setJabatan('')
+                        setInstansi('')
+                        setTelp('')
+                        setKegiatan('')
+                        setPaketkegiatan('')
+                        setLokasi('')
+                        setPernyataan('')
+                        setTanggal('')
+                        setTTd('')
+                }
+            });
+        });
+            navigate("/formpengajuan");
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return(
         <div className="content-body-wrapper">
@@ -114,7 +179,7 @@ const FormPengajuan = ()=>{
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="formFileLg" className="form-label">Upload tanda tangan digital</label>
-                                            <input className="form-control-lg w-100" type="file" id="formFile" />
+                                            <input className="form-control-lg w-100" type="file" id="formFile"  onChange={(e)=>loadImage(e)}/>
                                         </div>
                                     </div>
                                     <button type='submit' className='btn btn-lg btn-primary w-100'>Buat Pengajuan</button>
