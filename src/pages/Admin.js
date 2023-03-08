@@ -1,91 +1,101 @@
-
+import Table from 'react-bootstrap/Table';
 import axios from 'axios'
 import { useState } from 'react'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
-import React, { useMemo } from 'react';
-import MaterialReactTable from 'material-react-table';
+import React from 'react';
+import { Provider, Contex } from "../components/Context"
+import {useContext} from 'react'
 
-const data = [
-    {
-      name: {
-        firstName: 'John',
-        lastName: 'Doe',
-      },
-      address: '261 Erdman Ford',
-      city: 'East Daphne',
-      state: 'Kentucky',
-    },
-    {
-      name: {
-        firstName: 'Jane',
-        lastName: 'Doe',
-      },
-      address: '769 Dominic Grove',
-      city: 'Columbus',
-      state: 'Ohio',
-    },
-    {
-      name: {
-        firstName: 'Joe',
-        lastName: 'Doe',
-      },
-      address: '566 Brakus Inlet',
-      city: 'South Linda',
-      state: 'West Virginia',
-    },
-    {
-      name: {
-        firstName: 'Kevin',
-        lastName: 'Vandy',
-      },
-      address: '722 Emie Stream',
-      city: 'Lincoln',
-      state: 'Nebraska',
-    },
-    {
-      name: {
-        firstName: 'Joshua',
-        lastName: 'Rolluffs',
-      },
-      address: '32188 Larkin Turnpike',
-      city: 'Charleston',
-      state: 'South Carolina',
-    },
-  ];
+// const data = [
+//     {
+//       name: {
+//         firstName: 'John',
+//         lastName: 'Doe',
+//       },
+//       address: '261 Erdman Ford',
+//       city: 'East Daphne',
+//       state: 'Kentucky',
+//     },
+//     {
+//       name: {
+//         firstName: 'Jane',
+//         lastName: 'Doe',
+//       },
+//       address: '769 Dominic Grove',
+//       city: 'Columbus',
+//       state: 'Ohio',
+//     },
+//     {
+//       name: {
+//         firstName: 'Joe',
+//         lastName: 'Doe',
+//       },
+//       address: '566 Brakus Inlet',
+//       city: 'South Linda',
+//       state: 'West Virginia',
+//     },
+//     {
+//       name: {
+//         firstName: 'Kevin',
+//         lastName: 'Vandy',
+//       },
+//       address: '722 Emie Stream',
+//       city: 'Lincoln',
+//       state: 'Nebraska',
+//     },
+//     {
+//       name: {
+//         firstName: 'Joshua',
+//         lastName: 'Rolluffs',
+//       },
+//       address: '32188 Larkin Turnpike',
+//       city: 'Charleston',
+//       state: 'South Carolina',
+//     },
+//   ];
 
-  const Example = () => {
-    //should be memoized or stable
-    const columns = useMemo(
-      () => [
-        {
-          accessorKey: 'name.firstName', //access nested data with dot notation
-          header: 'First Name',
-        },
-        {
-          accessorKey: 'name.lastName',
-          header: 'Last Name',
-        },
-        {
-          accessorKey: 'address', //normal accessorKey
-          header: 'Address',
-        },
-        {
-          accessorKey: 'city',
-          header: 'City',
-        },
-        {
-          accessorKey: 'state',
-          header: 'State',
-        },
-      ],
-      [],
-    );
+//   const Example = () => {
+//     //should be memoized or stable
+//     const columns = useMemo(
+//       () => [
+//         {
+//           accessorKey: 'name.firstName', //access nested data with dot notation
+//           header: 'First Name',
+//         },
+//         {
+//           accessorKey: 'name.lastName',
+//           header: 'Last Name',
+//         },
+//         {
+//           accessorKey: 'address', //normal accessorKey
+//           header: 'Address',
+//         },
+//         {
+//           accessorKey: 'city',
+//           header: 'City',
+//         },
+//         {
+//           accessorKey: 'state',
+//           header: 'State',
+//         },
+//       ],
+//       [],
+//     );
   
-    return <MaterialReactTable columns={columns} data={data} />;
-  };
+//     return <MaterialReactTable columns={columns} data={data} />;
+//   };
 
 const Admin = ()=>{
+    return(
+        <Provider>
+            <AdminProvider />
+        </Provider>
+    )
+}
+
+const AdminProvider = ()=>{
+    const {blog, getDataBlog} = useContext(Contex)
     const navigate = useNavigate()
     const [ tanggal, setTanggal ] = useState('')
     const [ judul, setJudul ] = useState('')
@@ -118,7 +128,9 @@ const Admin = ()=>{
             setJudul('')
             setParagraph1('')
             setParagraph2('')
-            setImage('')
+            setTanggal('')
+            setImage(null)
+            getDataBlog()
             swal({
                 title: "Blog Disimpan",
                 text: "Program / Kegiatan UPT Lab PUPR Tarakan Kota Telah ditambahkan",
@@ -203,7 +215,7 @@ const Admin = ()=>{
                                             <label htmlFor="formFileLg" className="form-label">Upload Foto Kegiatan</label>
                                             <input 
                                             className="form-control-lg w-100" 
-                                            type="file" id="formFile"  
+                                            type="file" id="formFile"
                                             onChange={(e)=>loadImage(e)}/>
                                         </div>
                                     </div>
@@ -211,13 +223,65 @@ const Admin = ()=>{
                                 </form>
                             </div>
                         </div>
+                    </div>  
+                    <div className='row justify-content-center mt-5'>
+                      <div className='col-12'>
+                        <div className="service-card p-4 ">
+                          <BasicTable data={blog} getDataBlog={getDataBlog} />
+                        </div>
+                      </div>
                     </div>
-                    
                 </div>
             </div>
-            <Example />
         </div>
     )
+}
+
+const BasicTable = ({data, getDataBlog})=> {
+
+    
+    const handlingDelete = async(id)=>{
+        try{
+            await axios.delete(`http://localhost:5000/blog/${id}`)
+            getDataBlog()
+        } catch(err){
+            console.log(err)
+        }
+    }
+
+  return (
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Judul</th>
+          <th>Paragraph 1</th>
+          <th>Paragraph 2</th>
+          <th>Tanggal</th>
+          <th>Image</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+          { data.map((b)=>{
+              return(
+                <tr key={b.id}>
+                    <td>{b.id}</td>
+                    <td>{b.judul}</td>
+                    <td>{b.paragraph1}</td>
+                    <td>{b.paragraph2}</td>
+                    <td>{b.tanggal}</td>
+                    <td>{b.imgpath}</td>
+                    <td className="d-flex gap-2">
+                        {/* <button className='btn btn-warning'><i className="bi bi-pencil-fill text-white"></i></button> */}
+                        <button className='btn btn-danger' onClick={()=>handlingDelete(b.id)}><i className="bi bi-trash3-fill text-white"></i></button>    
+                    </td>
+                </tr>
+              )
+          })}
+      </tbody>
+    </Table>
+  );
 }
 
 export default Admin

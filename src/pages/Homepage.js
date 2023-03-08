@@ -3,11 +3,12 @@ import pengujian from '../img/icon/pengujian.png'
 import tarif from '../img/icon/tarif.png'
 import steps from '../img/icon/steps.png'
 import jenislayanan from '../img/icon/jenislayanan.png'
-import example from '../img/blog/example.jpg'
+// import example from '../img/blog/example.jpg'
 import accsent1 from '../img/accsent.jpg'
 import accsent3 from  '../img/acc.png'
 import accsent4 from  '../img/acc4.png'
 import CardGaleri from "../components/CardGaleri"
+import React  from 'react';
 
 const Homepage = ()=>{
     return(

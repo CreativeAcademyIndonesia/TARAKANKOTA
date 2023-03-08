@@ -4,6 +4,7 @@ import customservice from '../img/icon/customer-service.png'
 import process from '../img/icon/process.png'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
+import React from 'react';
 
 const FormPengajuan = ()=>{
     const navigate = useNavigate()

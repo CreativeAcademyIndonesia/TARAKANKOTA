@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../img/tarakanlogo.png'
 import { Link } from "react-router-dom";
+import React from 'react';
 
 function Navigation() {
   return (

@@ -1,3 +1,5 @@
+import React  from 'react';
+
 const Contact = ()=>{
     return(
         <div className="content-body-wrapper py-80 d-flex align-items-center" >

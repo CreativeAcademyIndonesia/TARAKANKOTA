@@ -135,6 +135,24 @@ h5{
 .text-md-justify-end{
   text-align: right;
 }
+.blog-card span {
+  text-align: justify;
+  font-size: .9rem;
+}
+
+.blog-card h5 span {
+  text-align: justify;
+  font-size: 1.3rem;
+}
+
+.blog-img{
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.blog-img img{
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
 
 @media only screen and (max-width: 768px) {
 

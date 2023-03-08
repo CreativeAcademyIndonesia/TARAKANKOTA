@@ -1,5 +1,6 @@
 import form from '../img/icon/formicon.png'
 import customservice from '../img/icon/customer-service.png'
+import React  from 'react';
 
 const Pelayanan = ()=>{
     return(

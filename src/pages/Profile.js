@@ -2,6 +2,7 @@ import VISI from '../img/visi.svg'
 import MISI from '../img/misi.svg'
 import kepaladinas from '../img/struktur/kepala.png'
 import struktur from '../img/struktur/struktur.png'
+import React from 'react';
 
 const ProfilePage = ()=>{
     return(

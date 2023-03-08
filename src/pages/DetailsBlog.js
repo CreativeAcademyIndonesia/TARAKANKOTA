@@ -1,24 +1,49 @@
-import lands from '../img/blog/lands.jpg'
 import CardGaleri from '../components/CardGaleri'
+import React, { useEffect, useState }  from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import moment from 'moment';
+import {useContext} from 'react'
+import { Provider, Contex } from '../components/Context';
 
 const DetailsBlog = ()=>{
+    return(
+        <Provider>
+            <DetailBlogProvider />
+        </Provider>
+    )
+}
+
+const DetailBlogProvider = ()=>{
+    const {blog, setBlog} = useContext(Contex)
+    const navigate = useNavigate()
+    let { id } = useParams();
+    const [ data, setData ] = useState([])
+
+    const getDetail = async (id)=> {
+        const response = await axios.get(`http://localhost:5000/blogdetail/${id}`)
+        setData(response.data[0])
+    }
+    useEffect(()=>{
+        getDetail(id)
+    }, [])
     return(
         <div className="content-body-wrapper">
             <div className="container py-60">
                 <div className="row justify-content-center py-5">
                     <div className="col-8 text-center">
                         <div className="card-service p-4 text-cener"></div>
-                        <h5 className="text-blue">Senin, 25 January 2023</h5>
-                        <h2 className=" fw-bold mt-2 lh-base">Musyawarah Perancangan dan Pembangunan Pekerjaan Umum dan Tata Ruang</h2>
-                        <img src={lands} className="rounded-4 mt-5 w-75"/>
+                        <h5 className="text-blue">{moment(data.tanggal).format('LLLL')}</h5>
+                        <h2 className=" fw-bold mt-2 lh-base">{data.judul}</h2>
+                        <img alt="lands" src={`http://localhost:5000/images/${data.imgpath}`} className="rounded-4 mt-5 w-75"/>
                         <p className='mt-5' style={{textAlign : "justify"}}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        {data.paragraph1}
                         </p>
                         <p className='mt-5' style={{textAlign : "justify"}}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        {data.paragraph2}
                         </p>
                         <p className='mt-5' style={{textAlign : "justify"}}>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                        {data.paragraph3}
                         </p>
                     </div>
                 </div>
@@ -30,12 +55,18 @@ const DetailsBlog = ()=>{
                             <h5 className="text-blue">Blog Lainnya</h5>
                             <h1 className=" fw-bold mt-2">Program & Kegiatan</h1>
                         </div>
-                            <CardGaleri />
-                            <CardGaleri />
-                            <CardGaleri />
+                        { blog.map((item, index)=>{
+                            if( index <= 3 ){
+                                return(
+                                    <CardGaleri key={item.id} data={item} />
+                                )
+                            }else{
+                                return
+                            }
+                        }) }
 
                         <div className="col-8 text-center">
-                            <a href="/home" className="text-decoration-none mx-auto d-block mt-5 link">Lihat Lainnya...</a>
+                            <span onClick={()=>navigate('/galeri')} className="text-decoration-none mx-auto d-block mt-5 link text-blue" style={{cursor : "pointer"}}>Lihat Lainnya...</span>
                         </div>
                     </div>
                 </div>

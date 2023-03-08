@@ -11,6 +11,7 @@ import Pelayanan from './pages/Pelayanan';
 import FormPengajuan from './pages/FormPengajuan';
 import DetailsBlog from './pages/DetailsBlog';
 import Admin from './pages/Admin';
+import React from 'react';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <Route path='/profile' element={<ProfilePage />}></Route>
             <Route path='/pelayanan' element={<Pelayanan />}></Route>
             <Route path='/galeri' element={<Galeri />}></Route>
-            <Route path='/galeri/:1' element={<DetailsBlog />}></Route>
+            <Route path='/galeri/:id' element={<DetailsBlog />}></Route>
             <Route path='/contact' element={<Contact />}></Route>
             <Route path='/mekanisme' element={<Mekanisme />}></Route>
             <Route path='/formpengajuan' element={<FormPengajuan />}></Route>
