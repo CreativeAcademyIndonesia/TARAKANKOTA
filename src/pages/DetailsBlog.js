@@ -26,7 +26,7 @@ const DetailBlogProvider = ()=>{
     }
     useEffect(()=>{
         getDetail(id)
-    }, [])
+    }, [id])
     return(
         <div className="content-body-wrapper">
             <div className="container py-60">

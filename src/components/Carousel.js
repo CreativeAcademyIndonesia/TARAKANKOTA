@@ -9,7 +9,7 @@ function CarouselBanner() {
         <Carousel fade>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 h-100"
             src={banner}
             alt="First slide"
           />
@@ -20,7 +20,7 @@ function CarouselBanner() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 h-100"
             src={banner2}
             alt="Second slide"
           />
@@ -32,7 +32,7 @@ function CarouselBanner() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 h-100"
             src={banner}
             alt="Third slide"
           />

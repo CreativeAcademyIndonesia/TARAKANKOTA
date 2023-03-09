@@ -9,8 +9,21 @@ import accsent3 from  '../img/acc.png'
 import accsent4 from  '../img/acc4.png'
 import CardGaleri from "../components/CardGaleri"
 import React  from 'react';
+import {useContext} from 'react'
+import { Provider, Contex } from '../components/Context';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Homepage = ()=>{
+    return(
+        <Provider>
+            <HomepageProvider />
+        </Provider>
+    )
+}
+
+const HomepageProvider = ()=>{
+    const {blog, setBlog} = useContext(Contex)
+    const navigate = useNavigate()
     return(
         <div className="content-body-wrapper">
             <CarouselBanner />
@@ -25,7 +38,7 @@ const Homepage = ()=>{
 
                 <div className="row my-2 my-md-5 justify-content-center mb-5">
 
-                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
+                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0" onClick={()=>navigate('/pelayanan')}>
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img alt="" src={jenislayanan} className="w-75"/>
@@ -35,7 +48,7 @@ const Homepage = ()=>{
                     </div>
 
 
-                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
+                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0" onClick={()=>navigate('/formpengajuan')}>
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img alt="" src={pengujian} className="w-75"/>
@@ -44,7 +57,7 @@ const Homepage = ()=>{
                         </div>
                     </div>
 
-                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
+                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0" onClick={()=>navigate('/pelayanan')}>
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img alt="" src={tarif} className="w-75"/>
@@ -53,7 +66,7 @@ const Homepage = ()=>{
                         </div>
                     </div>
 
-                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0">
+                    <div className="col-md-4 col-lg-3 col-6 mt-4 mt-md-0" onClick={()=>navigate('/mekanisme')}>
                         <div className="service-card p-4">
                             <div className="icon-layanan text-center mx-auto p-2 mb-4 d-flex justify-content-center align-items-center">
                                 <img alt="" src={steps} className="w-75"/>
@@ -124,12 +137,18 @@ const Homepage = ()=>{
                         <h1 className=" fw-bold mt-2">Program & Kegiatan Terkini</h1>
                     </div>
 
-                    <CardGaleri />
-                    <CardGaleri />
-                    <CardGaleri />
+                    { blog.map((item, index)=>{
+                        if( index <= 3 ){
+                            return(
+                                <CardGaleri key={item.id} data={item} />
+                            )
+                        }else{
+                            return
+                        }
+                    }) }
 
                     <div className="col-12 text-center">
-                        <a href="/home" className="text-decoration-none mx-auto d-block mt-5 link">Lihat Lainnya...</a>
+                        <span onClick={()=>navigate('/galeri')} className="text-decoration-none mx-auto d-block mt-5 link text-blue" style={{cursor : "pointer"}}>Lihat Lainnya...</span>
                     </div>
                 </div>
             </div>

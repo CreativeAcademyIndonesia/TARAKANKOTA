@@ -189,7 +189,7 @@ const FormPengajuan = ()=>{
                         </div>
                         <div className='col-md-4 order-md-2 mb-3'>
                             <div className='sticky-top' style={{paddingTop : '90px', marginTop : '-90px'}}>
-                                <div className="service-card p-4 " >
+                                <div className="service-card p-4" onClick={()=>navigate('/mekanisme')} >
                                     <img src={process} alt="" className='mb-3' style={{width : "18%"}}/>
                                     <h5>Alur Pengajuan</h5>
                                     <p>Pengujian Uji Bahan Konstruksi</p>

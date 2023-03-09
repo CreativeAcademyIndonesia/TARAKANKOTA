@@ -10,6 +10,7 @@ const Galeri = ()=>{
         setDate(e.target.value)
         getDataBlogByDate(new Date(e.target.value).getFullYear())
     }
+    
     return(
         <div className="content-body-wrapper">
             <div className="container">

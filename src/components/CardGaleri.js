@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 const CardGaleri = ({data})=>{
     const navigate = useNavigate()
-
     return(
         <div className="col-lg-4 col-md-6 col-12 mt-lg-0 my-4" onClick={()=>navigate(`/galeri/${data.id}`)}>
             <div className="service-card p-4 blog-card">

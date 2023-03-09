@@ -4,27 +4,40 @@ import keterangan from '../img/keterangan.PNG'
 import form from '../img/icon/formicon.png'
 import customservice from '../img/icon/customer-service.png'
 import React from 'react';
+import mekanisme from '../img/mekanisme.png'
+import process from '../img/icon/process.png'
+import {useNavigate} from 'react-router-dom'
 
 const Mekanisme = ()=>{
+    const navigate = useNavigate()
     return(
         <div className="content-body-wrapper">
             <div className="container-fluid py-80">
                 <div className="container">
                     <div className='row justify-content-center'>
                         <div className='col-md-8 order-1 mt-4'>
-                            <NavTabs />
-                            <div className="tab-content" id="myTabContent">
-                                <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
-                                    <MekanismeContent />
+                            <div className='row'>
+                                <div className='col-12 py-5'>
+                                    <h5 className="text-blue">PUPR Tarakan Kota</h5>
+                                    <h1 className=" fw-bold mt-2 mb-4">Layanan Uji Labolatorium</h1>
+                                    <img src={mekanisme} className='w-100 rounded-5 overflow-hidden'/>
                                 </div>
-                                <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
-                                    <ProsesContent />
+                                <div className='col-12'>
+                                    <NavTabs />
+                                    <div className="tab-content" id="myTabContent">
+                                        <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
+                                            <MekanismeContent />
+                                        </div>
+                                        <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
+                                            <ProsesContent />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div className='col-md-4 order-md-2'>
                             <div className='sticky-top nav-right'>
-                                <div className="service-card p-4 p-4 " >
+                                <div className="service-card p-4 p-4" onClick={()=>navigate('/formpengajuan')} >
                                     <img src={form} alt="" className='mb-3' style={{width : "18%"}}/>
                                     <h5>
                                         Buat Pengajuan 
@@ -52,22 +65,18 @@ const Mekanisme = ()=>{
                                     </div>
                                     
                                 </div>
+                                <div className="service-card p-4 mt-3" onClick={()=>navigate('/mekanisme')} >
+                                    <img src={process} alt="" className='mb-3' style={{width : "18%"}}/>
+                                    <h5>Alur Pengajuan</h5>
+                                    <p>Pengujian Uji Bahan Konstruksi</p>
+                                    <div className='d-flex align-items-center justify-content-between'>
+                                        <span className='text-grey text-14'>Lihat Mekanisme & Proses </span> <i className="bi bi-arrow-right-short text-16"></i>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
 
-
-                        {/* <div className='col-lg-10 col-12 '>
-                            <NavTabs />
-                        </div>
-                        <div className="tab-content" id="myTabContent">
-                            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
-                                <MekanismeContent />
-                            </div>
-                            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
-                                <ProsesContent />
-                            </div>
-                        </div> */}
                     </div>
                     
                 </div>
