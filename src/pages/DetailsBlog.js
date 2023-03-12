@@ -21,7 +21,7 @@ const DetailBlogProvider = ()=>{
     const [ data, setData ] = useState([])
 
     const getDetail = async (id)=> {
-        const response = await axios.get(`http://localhost:5000/blogdetail/${id}`)
+        const response = await axios.get(`${process.env.REACT_APP_SERVER}blogdetail/${id}`)
         setData(response.data[0])
     }
     useEffect(()=>{
@@ -35,7 +35,7 @@ const DetailBlogProvider = ()=>{
                         <div className="card-service p-4 text-cener"></div>
                         <h5 className="text-blue">{moment(data.tanggal).format('LLLL')}</h5>
                         <h2 className=" fw-bold mt-2 lh-base">{data.judul}</h2>
-                        <img alt="lands" src={`http://localhost:5000/images/${data.imgpath}`} className="rounded-4 mt-5 w-75"/>
+                        <img alt="lands" src={`${process.env.REACT_APP_SERVER}images/${data.imgpath}`} className="rounded-4 mt-5 w-75"/>
                         <p className='mt-5' style={{textAlign : "justify"}}>
                         {data.paragraph1}
                         </p>

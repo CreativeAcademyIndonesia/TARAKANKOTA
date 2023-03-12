@@ -8,7 +8,7 @@ const CardGaleri = ({data})=>{
         <div className="col-lg-4 col-md-6 col-12 mt-lg-0 my-4" onClick={()=>navigate(`/galeri/${data.id}`)}>
             <div className="service-card p-4 blog-card">
                 <div className=' blog-img rounded-4 overflow-hidden'>
-                    <img alt="" src={`http://localhost:5000/images/${data.imgpath}`} className="rounded-4 w-100" />
+                    <img alt="" src={`${process.env.REACT_APP_SERVER}images/${data.imgpath}`} className="rounded-4 w-100" />
                 </div>
                 <span className='d-block text-grey mt-3 d-inline-block text-14'>{data.tanggal}</span>
                 <TextTruncate

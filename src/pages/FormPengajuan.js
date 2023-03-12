@@ -51,7 +51,7 @@ const FormPengajuan = ()=>{
         }
         formData.append("data", JSON.stringify(con));
         try {
-            await axios.post("http://localhost:5000/upload/pengajuan", formData, {
+            await axios.post(`${process.env.REACT_APP_SERVER}upload/pengajuan`, formData, {
             headers: {
                 "Content-type": "multipart/form-data",
             },

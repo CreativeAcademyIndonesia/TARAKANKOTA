@@ -1,90 +1,12 @@
 import Table from 'react-bootstrap/Table';
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import swal from 'sweetalert'
 import { useNavigate } from 'react-router-dom'
 import React from 'react';
 import { Provider, Contex } from "../components/Context"
 import {useContext} from 'react'
-
-// const data = [
-//     {
-//       name: {
-//         firstName: 'John',
-//         lastName: 'Doe',
-//       },
-//       address: '261 Erdman Ford',
-//       city: 'East Daphne',
-//       state: 'Kentucky',
-//     },
-//     {
-//       name: {
-//         firstName: 'Jane',
-//         lastName: 'Doe',
-//       },
-//       address: '769 Dominic Grove',
-//       city: 'Columbus',
-//       state: 'Ohio',
-//     },
-//     {
-//       name: {
-//         firstName: 'Joe',
-//         lastName: 'Doe',
-//       },
-//       address: '566 Brakus Inlet',
-//       city: 'South Linda',
-//       state: 'West Virginia',
-//     },
-//     {
-//       name: {
-//         firstName: 'Kevin',
-//         lastName: 'Vandy',
-//       },
-//       address: '722 Emie Stream',
-//       city: 'Lincoln',
-//       state: 'Nebraska',
-//     },
-//     {
-//       name: {
-//         firstName: 'Joshua',
-//         lastName: 'Rolluffs',
-//       },
-//       address: '32188 Larkin Turnpike',
-//       city: 'Charleston',
-//       state: 'South Carolina',
-//     },
-//   ];
-
-//   const Example = () => {
-//     //should be memoized or stable
-//     const columns = useMemo(
-//       () => [
-//         {
-//           accessorKey: 'name.firstName', //access nested data with dot notation
-//           header: 'First Name',
-//         },
-//         {
-//           accessorKey: 'name.lastName',
-//           header: 'Last Name',
-//         },
-//         {
-//           accessorKey: 'address', //normal accessorKey
-//           header: 'Address',
-//         },
-//         {
-//           accessorKey: 'city',
-//           header: 'City',
-//         },
-//         {
-//           accessorKey: 'state',
-//           header: 'State',
-//         },
-//       ],
-//       [],
-//     );
-  
-//     return <MaterialReactTable columns={columns} data={data} />;
-//   };
+import { FallingLines } from  'react-loader-spinner'
 
 const Admin = ()=>{
     return(
@@ -95,6 +17,7 @@ const Admin = ()=>{
 }
 
 const AdminProvider = ()=>{
+    const [loading, setLoading] = useState(false)
     const {blog, getDataBlog} = useContext(Contex)
     const navigate = useNavigate()
     const [ tanggal, setTanggal ] = useState('')
@@ -120,11 +43,13 @@ const AdminProvider = ()=>{
         }
         formData.append("data", JSON.stringify(con));
         try {
-            await axios.post("http://localhost:5000/upload/blog", formData, {
+            setLoading(true)
+            await axios.post(`${process.env.REACT_APP_SERVER}upload/blog`, formData, {
             headers: {
                 "Content-type": "multipart/form-data",
             },
         }).then((response) => {
+            setLoading(false)
             setJudul('')
             setParagraph1('')
             setParagraph2('')
@@ -141,99 +66,117 @@ const AdminProvider = ()=>{
             navigate("/admin");
         } catch (error) {
             console.log(error);
+            alert(`${error.code}, silahkan coba beberapa saat lagi`)
+            setLoading(false)
         }
     };
 
-
     return(
-        <div className="content-body-wrapper">
-            <div className="container-fluid py-60">
-                <div className="container">
-                    <div className='row justify-content-center'>
-                        <div className='col-md-8 order-1'>
-                            <div className="service-card p-4 ">
-                                <h5 className="text-blue">Hallo Admin, Silahkan Upload</h5>
-                                <h1 className=" fw-bold mt-2">Program & Kegiatan Terkini</h1>
-                                <form className='mt-4' onSubmit={(e)=>handSubmit(e)}>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                                <div className="form-floating mb-3">
-                                                    <textarea 
-                                                    type="text" 
-                                                    className="form-control" 
-                                                    id="floatJudul" 
-                                                    placeholder="Judul" 
-                                                    value={judul} 
-                                                    onChange={(e)=> 
-                                                    setJudul(e.target.value)}/>
-                                                    <label htmlFor="floatJudul">Judul</label>
+        <div className="position-relative">
+            { loading == true ? 
+                <div className={loading == true ? 'd-block position-absolute top-0 end-0 start-0 top-0 bg-darkblue d-flex align-items-center justify-content-center flex-column' : 'd-none position-absolute top-0 end-0 start-0 top-0 bg-darkblue d-flex align-items-center justify-content-center flex-column'} style={{height : '100vh', zIndex : "10"}}>
+                    <FallingLines
+                    color="#4fa94d"
+                    width="100"
+                    visible={loading}
+                    ariaLabel='falling-lines-loading'
+                    />
+                    <h1 className='text-white'>Tunggu Sebentar..</h1>
+                    <h6 className='text-white'>Sedang mengupload Gambar, Membutuhkan waktu beberapa saat..</h6>
+                </div>
+            : 
+                <div className="content-body-wrapper position-relative">
+                    <div className="container-fluid py-60">
+                        <div className="container">
+                            <div className='row justify-content-center'>
+                                <div className='col-md-8 order-1'>
+                                    <div className="service-card p-4 ">
+                                        <h5 className="text-blue">Hallo Admin, Silahkan Upload</h5>
+                                        <h1 className=" fw-bold mt-2">Program & Kegiatan Terkini</h1>
+                                        <form className='mt-4' onSubmit={(e)=>handSubmit(e)}>
+                                            <div className='row'>
+                                                <div className='col-12'>
+                                                        <div className="form-floating mb-3">
+                                                            <textarea 
+                                                            type="text" 
+                                                            className="form-control" 
+                                                            id="floatJudul" 
+                                                            placeholder="Judul" 
+                                                            value={judul} 
+                                                            onChange={(e)=> 
+                                                            setJudul(e.target.value)}/>
+                                                            <label htmlFor="floatJudul">Judul</label>
+                                                        </div>
+                                                    </div>
+                                                <div className='col-12'>
+                                                    <div className="form-floating mb-3">
+                                                        <textarea 
+                                                        style={{height : "200px"}} 
+                                                        type="text" 
+                                                        className="form-control" 
+                                                        id="floatParagraph1" 
+                                                        placeholder="Paragraph1" 
+                                                        value={paragraph1} 
+                                                        onChange={(e)=> 
+                                                        setParagraph1(e.target.value)}/>
+                                                        <label htmlFor="floatParagraph1">Paragraph 1</label>
+                                                    </div>
+                                                </div>
+
+                                                <div className='col-12'>
+                                                    <div className="form-floating mb-3">
+                                                        <textarea 
+                                                        style={{height : "200px"}} 
+                                                        type="text" 
+                                                        className="form-control" 
+                                                        id="floatParagraph2" 
+                                                        placeholder="Paragraph2" 
+                                                        value={paragraph2} 
+                                                        onChange={(e)=> 
+                                                        setParagraph2(e.target.value)}/>
+                                                        <label htmlFor="floatParagraph2">Paragraph 2</label>
+                                                    </div>
+                                                </div>
+
+                                                <div className='col-12'>
+                                                    <div className="form-floating mb-3">
+                                                        <input 
+                                                        type="date" 
+                                                        className="form-control" 
+                                                        id="floatTanggal" 
+                                                        placeholder="Tanggal" 
+                                                        value={tanggal} 
+                                                        onChange={(e)=> setTanggal(e.target.value)}/>
+                                                        <label htmlFor="floatTanggal">Tanggal</label>
+                                                    </div>
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor="formFileLg" className="form-label">Upload Foto Kegiatan</label>
+                                                    <input 
+                                                    className="form-control-lg w-100" 
+                                                    type="file" id="formFile"
+                                                    onChange={(e)=>loadImage(e)}/>
                                                 </div>
                                             </div>
-                                        <div className='col-12'>
-                                            <div className="form-floating mb-3">
-                                                <textarea 
-                                                style={{height : "200px"}} 
-                                                type="text" 
-                                                className="form-control" 
-                                                id="floatParagraph1" 
-                                                placeholder="Paragraph1" 
-                                                value={paragraph1} 
-                                                onChange={(e)=> 
-                                                setParagraph1(e.target.value)}/>
-                                                <label htmlFor="floatParagraph1">Paragraph 1</label>
-                                            </div>
-                                        </div>
-
-                                        <div className='col-12'>
-                                            <div className="form-floating mb-3">
-                                                <textarea 
-                                                style={{height : "200px"}} 
-                                                type="text" 
-                                                className="form-control" 
-                                                id="floatParagraph2" 
-                                                placeholder="Paragraph2" 
-                                                value={paragraph2} 
-                                                onChange={(e)=> 
-                                                setParagraph2(e.target.value)}/>
-                                                <label htmlFor="floatParagraph2">Paragraph 2</label>
-                                            </div>
-                                        </div>
-
-                                        <div className='col-12'>
-                                            <div className="form-floating mb-3">
-                                                <input 
-                                                type="date" 
-                                                className="form-control" 
-                                                id="floatTanggal" 
-                                                placeholder="Tanggal" 
-                                                value={tanggal} 
-                                                onChange={(e)=> setTanggal(e.target.value)}/>
-                                                <label htmlFor="floatTanggal">Tanggal</label>
-                                            </div>
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="formFileLg" className="form-label">Upload Foto Kegiatan</label>
-                                            <input 
-                                            className="form-control-lg w-100" 
-                                            type="file" id="formFile"
-                                            onChange={(e)=>loadImage(e)}/>
-                                        </div>
+                                            <button type='submit' className='btn btn-lg btn-primary w-100'>Simpan</button>
+                                        </form>
                                     </div>
-                                    <button type='submit' className='btn btn-lg btn-primary w-100'>Simpan</button>
-                                </form>
+                                </div>
+                            </div>  
+                            <div className='row justify-content-center mt-5'>
+                            <div className='col-12'>
+                                <div className="service-card p-4 ">
+                                <BasicTable data={blog} getDataBlog={getDataBlog} />
+                                </div>
+                            </div>
                             </div>
                         </div>
-                    </div>  
-                    <div className='row justify-content-center mt-5'>
-                      <div className='col-12'>
-                        <div className="service-card p-4 ">
-                          <BasicTable data={blog} getDataBlog={getDataBlog} />
-                        </div>
-                      </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
+
+        
     )
 }
 
@@ -242,7 +185,7 @@ const BasicTable = ({data, getDataBlog})=> {
     
     const handlingDelete = async(id)=>{
         try{
-            await axios.delete(`http://localhost:5000/blog/${id}`)
+            await axios.delete(`${process.env.REACT_APP_SERVER}blog/${id}`)
             getDataBlog()
         } catch(err){
             console.log(err)

@@ -8,12 +8,12 @@ const Provider = ({children})=> {
     const [blogdate, setBlogdate]= useState([])
 
     const getDataBlog = async ()=> {
-        const response = await axios.get('http://localhost:5000/blog')
+        const response = await axios.get(`${process.env.REACT_APP_SERVER}blog`)
         setBlog(response.data)
     }
 
     const getDataBlogByDate = async (date)=> {
-        const response = await axios.get(`http://localhost:5000/blog/${date}`)
+        const response = await axios.get(`${process.env.REACT_APP_SERVER}blog/${date}`)
         setBlogdate(response.data)
     }
 
